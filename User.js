@@ -5,7 +5,11 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
  // id: { type: String, required: true, unique: true },
-  email: { type: String, required: true, unique: true }
+  email: { type: String, required: true, unique: true },
+  classOne: { type: String, required: false, unique: false },
+  classTwo: { type: String, required: false, unique: false },
+  classThree: { type: String, required: false, unique: false }
+  
 });
 
 // userSchema.pre('save', function(next) {
@@ -28,6 +32,33 @@ var userSchema = new Schema({
 userSchema.statics.addUser = function(email, cb) {
   var newUser = new this({ email: email});
   newUser.save(cb);
+}
+
+userSchema.statics.addClassOne = function(email, classOne, cb) {
+  this.findOne({ email: email }, function(err, user) {
+    user.classOne = classOne;
+    user.save(cb);
+  });
+}
+
+userSchema.statics.getClassOne = function(email, cb) {
+  this.findOne({ email: email }, function(err, user) {
+    cb(user.classOne);
+  });
+}
+
+userSchema.statics.addClassTwo = function(email, classTwo, cb) {
+  this.findOne({ email: email }, function(err, user) {
+    user.classOne = classOne;
+    user.save(cb);
+  });
+}
+
+userSchema.statics.addClassThree = function(email, classThree, cb) {
+  this.findOne({ email: email }, function(err, user) {
+    user.classOne = classOne;
+    user.save(cb);
+  });
 }
 
 // userSchema.statics.checkIfLegit = function(username, password, cb) {
