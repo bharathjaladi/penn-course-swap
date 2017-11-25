@@ -4,13 +4,17 @@ var Schema = mongoose.Schema;
 //var bcrypt = require('bcrypt');
 
 var userSchema = new Schema({
+  name: { type: String, required: true, unique: false},
   email: { type: String, required: true, unique: true },
   classOne: { type: String, required: false, unique: false },
   classTwo: { type: String, required: false, unique: false },
   classThree: { type: String, required: false, unique: false },
   classIntoOne: { type: String, required: false, unique: false },
   classIntoTwo: { type: String, required: false, unique: false },
-  classIntoThree: { type: String, required: false, unique: false }
+  classIntoThree: { type: String, required: false, unique: false },
+  matchOne: { type: String, required: false, unique: false },
+  matchTwo: { type: String, required: false, unique: false },
+  matchThree: { type: String, required: false, unique: false }
   
 });
 
@@ -31,15 +35,14 @@ var userSchema = new Schema({
 //   });
 // });
 
-userSchema.statics.addUser = function(email, cb) {
-  var newUser = new this({ email: email, classOne: null, classTwo: null, classThree: null});
-  // this.findOne({ email: email }, function(err, user) {
-  //   if(user) {
-    // user.save(cb); }
-    // else {
+userSchema.statics.addUser = function(name, email, cb) {
+  var newUser = new this({ name: name, email: email, classOne: null, classTwo: null, classThree: null, matchOne: null, matchTwo: null, matchThree: null});
+  this.findOne({ email: email }, function(err, user) {
+    if(!user) {
       newUser.save(cb);
-//}
-  //});
+    }
+    else cb();
+  });
 }
 
 userSchema.statics.addClassOne = function(email, classOne, cb) {
@@ -82,35 +85,154 @@ userSchema.statics.getClassThree = function(email, cb) {
 }
 
 userSchema.statics.addTrade = function(email, out, into, cb) {
-  console.log(email);
   this.findOne({email: email}, function(err, user) {
     if(user) {
-    if(user.classOne) {
-      if(user.classTwo) {
-        user.classThree = out;
-        user.classIntoThree = into;
-        cb();
+      if(user.classOne) {
+        if(user.classTwo) {
+          user.classThree = out;
+          user.classIntoThree = into;
+          user.save(cb);
+        }
+        else {
+        user.classTwo = out;
+        user.classIntoTwo = into;
+        user.save(cb);
+        }
       }
       else {
-      user.classTwo = out;
-      user.classIntoThree = into;
-      cb();}
-    }
-    else {
-    user.classOne = out;
-    user.classIntoOne = into;
-    cb();}}
-    else console.log('hi');
-
+      user.classOne = out;
+      user.classIntoOne = into;
+      user.save(cb);
+      }}
   });
 }
+
+userSchema.statics.getMatchesOne = function(email, cb) {
+  var that = this;
+  this.findOne({ email: email }, function(err, user) {
+    console.log('here');
+    if(user) {
+      console.log('here0');
+      if(user.matchOne != null || user.classOne == null) cb();
+      that.findOne({ classIntoOne: user.classOne, classOne: user.classIntoOne, matchOne: null }, function(err, user2) {
+        console.log('here1');
+        if(user2 && user2.email != user.email) {
+          user.matchOne = user2.email;
+          user2.matchOne = user.email;
+         user.save(function(err) {
+            user2.save(cb);
+         });
+        }
+        else {
+          that.findOne({ classIntoTwo: user.classOne, classTwo: user.classIntoOne, matchTwo: null }, function(err, user2) {
+          if(user2 && user2.email != user.email) {
+            console.log('here2');
+            user.matchOne = user2.email;
+            user2.matchTwo = user.email;
+           user.save(function(err) {
+              user2.save(cb);
+           });
+          }
+          else {
+            that.findOne({ classIntoThree: user.classOne, classThree: user.classIntoOne, matchThree: null }, function(err, user2) {
+            if(user2 && user2.email != user.email) {
+              console.log('here3');
+              user.matchOne = user2.email;
+              user2.matchThree = user.email;
+             user.save(function(err) {
+                user2.save(cb);
+             });
+            }
+            else {
+              console.log('here4');
+              cb();}
+        });
+      }});
+    }});}});}
+
+userSchema.statics.getMatchesTwo = function(email, cb) {
+  var that = this;
+  this.findOne({ email: email }, function(err, user) {
+    if(user) {
+      console.log('here111');
+      if(user.matchTwo != null || user.classTwo == null) cb();
+      that.findOne({ classIntoOne: user.classTwo, classOne: user.classIntoTwo, matchOne: null }, function(err, user2) {
+        if(user2 && user2.email != user.email) {
+          console.log('here02');
+          user.matchTwo = user2.email;
+          user2.matchOne = user.email;
+          user.save(function(err) {
+            user2.save(cb);
+          });
+        }
+        else {
+          that.findOne({ classIntoTwo: user.classTwo, classTwo: user.classIntoTwo, matchTwo: null }, function(err, user2) {
+          if(user2 && user2.email != user.email) {
+            console.log('here411');
+            user.matchTwo = user2.email;
+            user2.matchTwo = user.email;
+            user.save(function(err) {
+              user2.save(cb);
+            });
+          }
+          else {
+            that.findOne({ classIntoThree: user.classTwo, classThree: user.classIntoTwo, matchThree: null }, function(err, user2) {
+            if(user2 && user2.email != user.email) {
+              console.log('here423');
+              user.matchTwo = user2.email;
+              user2.matchThree = user.email;
+              user.save(function(err) {
+                user2.save(cb);
+              });
+            }
+            else {console.log('here33');
+              cb();}
+        });
+      }});
+    }});}});}
+
+userSchema.statics.getMatchesThree = function(email, cb) {
+  var that = this;
+  this.findOne({ email: email }, function(err, user) {
+    if(user) {
+      if(user.matchThree != null || user.classThree == null) cb();
+      that.findOne({ classIntoOne: user.classThree, classOne: user.classIntoThree, matchOne: null }, function(err, user2) {
+        if(user2 && user2.email != user.email) {
+          user.matchThree = user2.email;
+          user2.matchOne = user.email;
+          user.save(function(err) {
+            user2.save(cb);
+          });
+        }
+        else {
+          that.findOne({ classIntoTwo: user.classThree, classTwo: user.classIntoThree, matchTwo: null }, function(err, user2) {
+          if(user2 && user2.email != user.email) {
+            user.matchThree = user2.email;
+            user2.matchTwo = user.email;
+            user.save(function(err) {
+              user2.save(cb);
+            });
+          }
+          else {
+            that.findOne({ classIntoThree: user.classThree, classThree: user.classIntoThree, matchThree: null }, function(err, user2) {
+            if(user2 && user2.email != user.email) {
+              user.matchThree = user2.email;
+              user2.matchThree = user.email;
+              user.save(function(err) {
+                user2.save(cb);
+              });
+            }
+            else cb();
+        });
+      }});
+    }});}});}
 
 userSchema.statics.getAll = function(email, cb) {
   this.findOne({ email: email }, function(err, user) {
     if(user){
     classesOut = [user.classOne, user.classTwo, user.classThree];
     classesInto = [user.classIntoOne, user.classIntoTwo, user.classIntoThree];
-    cb(user, classesOut, classesInto);}
+      cb(user, classesOut, classesInto, user.matchOne, user.matchTwo, user.matchThree);}
   });
 }
 

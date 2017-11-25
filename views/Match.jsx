@@ -4,7 +4,7 @@ import Style from 'style-it';
 export default class Matches extends React.Component {
 
     render() {
-        if(this.props.class) {
+        if(this.props.match) {
         return <Style>
             
             {`
@@ -52,7 +52,7 @@ export default class Matches extends React.Component {
          <body>
          <div id='main'>
          <article>
-               You have been matched with
+               You have been matched with {this.props.match}.
            </article>
          </div>
        </body>

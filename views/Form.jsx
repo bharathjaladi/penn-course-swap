@@ -1,5 +1,5 @@
 var React = require('react');
-import 'whatwg-fetch';
+var axios = require('axios')
 import queryString from 'qs';
 
 export default class Form extends React.Component {
@@ -7,8 +7,7 @@ export default class Form extends React.Component {
    super(props);
    this.state = {
     out: '',
-    into: '',
-    email: this.props.user.email
+    into: ''
   }
    this.handleChangeOut = this.handleChangeOut.bind(this);
    this.handleChangeInto = this.handleChangeInto.bind(this);
@@ -25,12 +24,7 @@ export default class Form extends React.Component {
  
   handleSubmit(event){ 
    event.preventDefault();
-   fetch('/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    body: queryString.stringify({email: this.state.email, out: this.state.out, into: this.state.into})})
+   axios.post('/', {out: this.state.out, into: this.state.into});
   }
  
   render () {
@@ -38,8 +32,8 @@ export default class Form extends React.Component {
     
     <div>
                 <form method="post" action="/">
-                    Class You Want To Trade Out Of (e.g. "ACCT-101-003"):<br/>
-                    <input type="text" name="out" value={this.state.out} onChange={this.handleChangeOut}/><br/>
+                    Class You Want To Trade Out Of:<br/>
+                    <input type="text" name="out" value={this.state.out} onChange={this.handleChangeOut} placeholder="(e.g. 'ACCT-101-003)'"/><br/>
                     Class You Want To Trade Into (e.g. "ACCT-102-002");<br/>
                     <input type="text" name="into" value={this.state.into} onChange={this.handleChangeInto}/><br/>
                     <input type="submit" value="Submit"/>

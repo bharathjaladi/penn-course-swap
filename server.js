@@ -39,9 +39,9 @@ app.use(express.static(__dirname));
 app.get('/',
   function(req, res) {
     if(req.user) {
-      User.addUser(req.user.emails[0].value, function(err) {
-        User.getAll(req.user.emails[0].value, function(user, classesOut, classesInto) {
-          res.render('home', { user: user, classOne: classesOut[0], classTwo: classesOut[1], classThree: classesOut[2]});
+      User.addUser(req.user.displayName, req.user.emails[0].value, function(err) {
+        User.getAll(req.user.emails[0].value, function(user, classesOut, classesInto, matchOne, matchTwo, matchThree) {
+          res.render('home', { user: user, classOne: classesOut[0], classTwo: classesOut[1], classThree: classesOut[2], classIntoOne: classesInto[0], classIntoTwo: classesInto[1], classIntoThree: classesInto[2], matchOne: matchOne, matchTwo: matchTwo, matchThree: matchThree});
       });
    });}
     else res.render('home', { user: req.user });
@@ -68,12 +68,15 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.post("/", function(req, res){
- User.addTrade(req.body.email, req.body.out, req.body.into, function(err) {
-   console.log('here');
-  User.getAll(req.body.email, function(user, classesOut, classesInto) {
-    console.log('here too');
-  res.render('home', { user: user, classOne: classesOut[0], classTwo: classesOut[1], classThree: classesOut[2]});
-  });
+ User.addTrade(req.user.emails[0].value, req.body.out, req.body.into, function(err) {
+  User.getMatchesOne(req.user.emails[0].value, function(err) {
+ User.getMatchesTwo(req.user.emails[0].value, function(err) {
+  User.getMatchesThree(req.user.emails[0].value, function(err) {
+  User.getAll(req.user.emails[0].value, function(user, classesOut, classesInto, matchOne, matchTwo, matchThree) {
+  res.render('home', { user: user, classOne: classesOut[0], classTwo: classesOut[1], classThree: classesOut[2], classIntoOne: classesInto[0], classIntoTwo: classesInto[1], classIntoThree: classesInto[2], matchOne: matchOne, matchTwo: matchTwo, matchThree: matchThree});
+  });});
+});
+});
 });
 });
 
