@@ -4,11 +4,13 @@ var Schema = mongoose.Schema;
 //var bcrypt = require('bcrypt');
 
 var userSchema = new Schema({
- // id: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   classOne: { type: String, required: false, unique: false },
   classTwo: { type: String, required: false, unique: false },
-  classThree: { type: String, required: false, unique: false }
+  classThree: { type: String, required: false, unique: false },
+  classIntoOne: { type: String, required: false, unique: false },
+  classIntoTwo: { type: String, required: false, unique: false },
+  classIntoThree: { type: String, required: false, unique: false }
   
 });
 
@@ -30,8 +32,14 @@ var userSchema = new Schema({
 // });
 
 userSchema.statics.addUser = function(email, cb) {
-  var newUser = new this({ email: email});
-  newUser.save(cb);
+  var newUser = new this({ email: email, classOne: null, classTwo: null, classThree: null});
+  // this.findOne({ email: email }, function(err, user) {
+  //   if(user) {
+    // user.save(cb); }
+    // else {
+      newUser.save(cb);
+//}
+  //});
 }
 
 userSchema.statics.addClassOne = function(email, classOne, cb) {
@@ -54,10 +62,54 @@ userSchema.statics.addClassTwo = function(email, classTwo, cb) {
   });
 }
 
+userSchema.statics.getClassTwo = function(email, cb) {
+  this.findOne({ email: email }, function(err, user) {
+    cb(user.classTwo);
+  });
+}
+
 userSchema.statics.addClassThree = function(email, classThree, cb) {
   this.findOne({ email: email }, function(err, user) {
     user.classOne = classOne;
     user.save(cb);
+  });
+}
+
+userSchema.statics.getClassThree = function(email, cb) {
+  this.findOne({ email: email }, function(err, user) {
+    cb(user.classThree);
+  });
+}
+
+userSchema.statics.addTrade = function(email, out, into, cb) {
+  this.findOne({ email: email }, function(err, user) {
+    if(user) {
+    if(user.classOne) {
+      if(user.classTwo) {
+        user.classThree = out;
+        user.classIntoThree = into;
+        cb();
+      }
+      else {
+      user.classTwo = out;
+      user.classIntoThree = into;
+      cb();}
+    }
+    else {
+    user.classOne = out;
+    user.classIntoOne = into;
+    cb();}}
+    else console.log('hi');
+
+  });
+}
+
+userSchema.statics.getAll = function(email, cb) {
+  this.findOne({ email: email }, function(err, user) {
+    if(user){
+    classesOut = [user.classOne, user.classTwo, user.classThree];
+    classesInto = [user.classIntoOne, user.classIntoTwo, user.classIntoThree];
+    cb(user, classesOut, classesInto);}
   });
 }
 

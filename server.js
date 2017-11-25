@@ -40,10 +40,9 @@ app.get('/',
   function(req, res) {
     if(req.user) {
       User.addUser(req.user.emails[0].value, function(err) {
-        User.addClassOne(req.user.emails[0].value, "test", new function(err) {
-        User.getClassOne(req.user.emails[0].value, function(classOne) {
-        res.render('home', { user: req.user, classOne: classOne});
-        })});
+        User.getAll(req.user.emails[0].value, function(user, classesOut, classesInto) {
+          res.render('home', { user: user, classOne: classesOut[0], classTwo: classesOut[1], classThree: classesOut[2]});
+      });
    });}
     else res.render('home', { user: req.user });
   });
@@ -69,12 +68,14 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.post("/", function(req, res){
- console.log(req.body.email);
-//  User.addClassOne(email, function(err) {
-//   User.getClassOne(email, function(err, classOne) {
-//   res.render('home', { user: req.user, classOne: classOne});
-//   });
-// });
+  console.log('here1');
+ User.addTrade(req.body.email, req.body.out, req.body.into, function(err) {
+   console.log('here');
+  User.getAll(req.body.email, function(user, classesOut, classesInto) {
+    console.log('here too');
+  res.render('home', { user: user, classOne: classesOut[0], classTwo: classesOut[1], classThree: classesOut[2]});
+  });
+});
 });
 
 app.listen(process.env.PORT || 3000);

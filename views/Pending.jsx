@@ -61,4 +61,4 @@ export default class Matches extends React.Component {
         
         
         ;}
-        else return <body><p><Form /></p></body>;}}
+        else return <body><p><Form user = {this.props.user}/></p></body>;}}

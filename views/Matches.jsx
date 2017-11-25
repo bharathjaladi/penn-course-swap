@@ -62,14 +62,14 @@ export default class Matches extends React.Component {
          <body>
          <div id='main'>
            <article>Here are your pending swaps:
-                <Pending class = {this.props.classOne}/>
-               <Pending class = {this.props.classTwo}/>
-               <Pending class = {this.props.classThree}/>
+                <Pending user = {this.props.user} class = {this.props.classOne}/>
+               <Pending user = {this.props.user} class = {this.props.classTwo}/>
+               <Pending user = {this.props.user} class = {this.props.classThree}/>
            </article>
            <article>Here are your matched swaps:
-               <Match class = {this.props.classOne}/>
-               <Match class = {this.props.classOne}/>
-               <Match class = {this.props.classOne}/>
+               <Match user = {this.props.user} class = {this.props.classOne}/>
+               <Match user = {this.props.user} class = {this.props.classOne}/>
+               <Match user = {this.props.user} class = {this.props.classOne}/>
            </article>
          </div>
        </body>
