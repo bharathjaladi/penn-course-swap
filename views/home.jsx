@@ -51,7 +51,7 @@ class HomePage extends React.Component {
       }
     `}
     <div><head><link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"></link></head>
-    <body style={bodyStyle}><div className="header"><div className="name1"><p className="header1">Hi, {this.props.user.displayName}!</p><p className="header2">Done swapping for now? <a className="name1" href="/logout">Log out</a>.</p></div><div className="clear"/></div>
+    <body style={bodyStyle}><div className="header"><div className="name1"><p className="header1">Hi, {this.props.user.email}!</p><p className="header2">Done swapping for now? <a className="name1" href="/logout">Log out</a>.</p></div><div className="clear"/></div>
     <br/><Matches user = {this.props.user} classOne = {this.props.classOne} /></body></div></Style>;}
 
   else {return <NotLoggedIn/>;}

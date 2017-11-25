@@ -68,7 +68,6 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.post("/", function(req, res){
-  console.log('here1');
  User.addTrade(req.body.email, req.body.out, req.body.into, function(err) {
    console.log('here');
   User.getAll(req.body.email, function(user, classesOut, classesInto) {

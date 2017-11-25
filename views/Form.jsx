@@ -1,13 +1,14 @@
 var React = require('react');
 import 'whatwg-fetch';
-import queryString from 'query-string';
+import queryString from 'qs';
 
 export default class Form extends React.Component {
   constructor(props){
    super(props);
    this.state = {
     out: '',
-    into: ''
+    into: '',
+    email: this.props.user.email
   }
    this.handleChangeOut = this.handleChangeOut.bind(this);
    this.handleChangeInto = this.handleChangeInto.bind(this);
@@ -29,7 +30,7 @@ export default class Form extends React.Component {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
     },
-    body: queryString.stringify({user: this.props.user.emails[0].value, out: this.state.out, into: this.state.into})})
+    body: queryString.stringify({email: this.state.email, out: this.state.out, into: this.state.into})})
   }
  
   render () {

@@ -82,7 +82,8 @@ userSchema.statics.getClassThree = function(email, cb) {
 }
 
 userSchema.statics.addTrade = function(email, out, into, cb) {
-  this.findOne({ email: email }, function(err, user) {
+  console.log(email);
+  this.findOne({email: email}, function(err, user) {
     if(user) {
     if(user.classOne) {
       if(user.classTwo) {
