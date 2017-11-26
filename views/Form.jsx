@@ -1,7 +1,7 @@
 var React = require('react');
 var axios = require('axios')
-import queryString from 'qs';
 var purecss = require('purecss');
+import Style from 'style-it';
 
 export default class Form extends React.Component {
   constructor(props){
@@ -30,34 +30,51 @@ export default class Form extends React.Component {
  
   render () {
    return (
+     <Style>
+       {`
+       .oswald {
+        font-family: Oswald,sans-serif;
+        color: #1098F7;
+       }
+
+       .oswald2 {
+          font-family: Oswald,sans-serif;
+       }
+
+       .oswald3 {
+          font-family: Oswald,sans-serif;
+          color: white;
+          background-color: #1098F7;
+       }
+       .pure-control-group {
+         text-align: center;
+       }
+
+       .pure-test {
+        text-align: center;
+        padding-top: 0.35em;
+      }
+       `}
      <div>
-     <head><link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossOrigin="anonymous" /></head>
+     <head><link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" /><link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossOrigin="anonymous" /></head>
     <div>
-                {/* <form method="post" action="/">
-                    Class You Want To Trade Out Of:<br/>
-                    <input type="text" className="pure-input-rounded" name="out" value={this.state.out} onChange={this.handleChangeOut} placeholder="(e.g. 'ACCT-101-003)'"/><br/>
-                    Class You Want To Trade Into (e.g. "ACCT-102-002");<br/>
-                    <input type="text" name="into" value={this.state.into} onChange={this.handleChangeInto}/><br/>
-                    <input type="submit" value="Submit"/>
-                </form> */}
   <form method="post" action="/" className="pure-form pure-form-aligned">
   <fieldset>
   <div className="pure-control-group">
-      <label htmlFor="out">Class you want to trade out of</label>
-      <input id="out" type="text" name="out" value={this.state.out} onChange={this.handleChangeOut} placeholder="e.g. ACCT-101-003" />
+      <label htmlFor="out" className="oswald">Class you want to swap out</label>
+      <input id="out" type="text" name="out" className="oswald2" value={this.state.out} onChange={this.handleChangeOut} placeholder="e.g. ACCT-101-003" />
   </div>
 
   <div className="pure-control-group">
-      <label htmlFor="into">Class you want to trade into</label>
-      <input id="into" type="text" name="into" value={this.state.into} onChange={this.handleChangeInto} placeholder="e.g. ACCT-102-001" />
+      <label htmlFor="into" className="oswald">Class you want to swap in</label>
+      <input id="into" type="text" name="into" className="oswald2" value={this.state.into} onChange={this.handleChangeInto} placeholder="e.g. ACCT-102-001" />
   </div>
-  <div className="pure-controls">
-
-      <button type="submit" className="pure-button pure-button-primary pure-input-rounded">Swap!</button>
+  <div className="pure-test">
+      <button type="submit" className="pure-button pure-input-rounded oswald3">Swap!</button>
   </div>
 </fieldset>
 </form>
-             </div></div>
+             </div></div></Style>
    )
   }
  }

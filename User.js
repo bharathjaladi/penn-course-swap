@@ -114,6 +114,114 @@ userSchema.statics.addTrade = function(email, out, into, cb) {
   });
 }
 
+userSchema.statics.removeTrade1 = function(email, cb) {
+  var that = this;
+  this.findOne({email: email}, function(err, user) {
+    if(user) {
+      if(user.matchOne) {
+        that.findOne({ email: user.matchOne}, function(err, user2) {
+          if(user2.classOne === user.classIntoOne && user2.classIntoOne === user.classOne) {
+            user2.matchOne = null;
+            user2.matchOneName = null;
+          }
+          else if(user2.classTwo === user.classIntoOne && user2.classIntoTwo === user.classOne) {
+            user2.matchTwo = null;
+            user2.matchTwoName = null;
+          }
+          else {
+            user2.matchThree = null;
+            user2.matchThreeName = null;
+          }
+          user2.save(function(err) {
+            user.classOne = null;
+            user.classIntoOne = null;
+            user.matchOne = null;
+            user.matchOneName = null;
+            user.save(cb);
+         });
+      })}
+      else {
+        user.classOne = null;
+        user.classIntoOne = null;
+        user.matchOne = null;
+        user.matchOneName = null;
+        user.save(cb);
+      }
+    };
+  });}
+
+  userSchema.statics.removeTrade2 = function(email, cb) {
+    var that = this;
+    this.findOne({email: email}, function(err, user) {
+      if(user) {
+        if(user.matchTwo) {
+          that.findOne({ email: user.matchTwo}, function(err, user2) {
+            if(user2.classOne === user.classIntoTwo && user2.classIntoOne === user.classTwo) {
+              user2.matchOne = null;
+              user2.matchOneName = null;
+            }
+            else if(user2.classTwo === user.classIntoTwo && user2.classIntoTwo === user.classTwo) {
+              user2.matchTwo = null;
+              user2.matchTwoName = null;
+            }
+            else {
+              user2.matchThree = null;
+              user2.matchThreeName = null;
+            }
+            user2.save(function(err) {
+              user.classTwo = null;
+              user.classIntoTwo = null;
+              user.matchTwo = null;
+              user.matchTwoName = null;
+              user.save(cb);
+           });
+        })}
+        else {
+          user.classTwo = null;
+          user.classIntoTwo = null;
+          user.matchTwo = null;
+          user.matchTwoName = null;
+          user.save(cb);
+        }
+      };
+    });}
+
+    userSchema.statics.removeTrade3 = function(email, cb) {
+      var that = this;
+      this.findOne({email: email}, function(err, user) {
+        if(user) {
+          if(user.matchThree) {
+            that.findOne({ email: user.matchThree}, function(err, user2) {
+              if(user2.classOne === user.classIntoThree && user2.classIntoOne === user.classThree) {
+                user2.matchOne = null;
+                user2.matchOneName = null;
+              }
+              else if(user2.classTwo === user.classIntoThree && user2.classIntoTwo === user.classThree) {
+                user2.matchTwo = null;
+                user2.matchTwoName = null;
+              }
+              else {
+                user2.matchThree = null;
+                user2.matchThreeName = null;
+              }
+              user2.save(function(err) {
+                user.classThree = null;
+                user.classIntoThree = null;
+                user.matchThree = null;
+                user.matchThreeName = null;
+                user.save(cb);
+             });
+          })}
+          else {
+            user.classThree = null;
+            user.classIntoThree = null;
+            user.matchThree = null;
+            user.matchThreeName = null;
+            user.save(cb);
+          }
+        };
+      });}
+
 userSchema.statics.getMatchesOne = function(email, cb) {
   var that = this;
   this.findOne({ email: email }, function(err, user) {

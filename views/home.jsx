@@ -10,6 +10,24 @@ const bodyStyle = {
   margin: '0'
 }
 
+const mainText = {
+  fontSize: '3.4em',
+  textAlign: 'center',
+  fontFamily: 'Oswald,sans-serif',
+};
+
+const mainText1 = {
+  color: '#42CAFD'
+};
+
+const mainText2 = {
+  color: '#1098F7'
+};
+
+const mainText3 = {
+  color: '#1446A0'
+};
+
 class HomePage extends React.Component {
 
   render() {
@@ -26,13 +44,13 @@ class HomePage extends React.Component {
       }
       
       .header {
-        height: 2.7em;
+        height: 2.05em;
         background: rgba(20,70,160, 0.1);
       }
 
       .name1 { 
           font-family: Oswald,sans-serif;
-          font-size: 2rem;
+          font-size: 1em;
           color: #1446A0;
         }
       
@@ -80,7 +98,7 @@ class HomePage extends React.Component {
     `}
     <div><head><link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"></link></head>
     <body style={bodyStyle}><div className="header"><div className="name1"><p className="header1">Hi, {this.props.user.name}!</p><p className="header2">Done swapping for now? <a className="name1" href="/logout">Log out</a>.</p></div><div className="clear"/></div>
-    <br/>
+    <div style = {mainText}><span style = {mainText1}>Penn</span><span style = {mainText2}>Course</span><span style = {mainText3}>Swap</span></div>
     <div id="main1">
     <article1><Pendings user = {this.props.user} classOne = {this.props.classOne} classTwo = {this.props.classTwo} classThree = {this.props.classThree} classIntoOne = {this.props.classIntoOne} classIntoTwo = {this.props.classIntoTwo} classIntoThree = {this.props.classIntoThree} matchOne = {this.props.matchOne} matchTwo = {this.props.matchTwo} matchThree = {this.props.matchThree}/></article1>
     <article1><Matches user = {this.props.user} classOne = {this.props.classOne} classTwo = {this.props.classTwo} classThree = {this.props.classThree} classIntoOne = {this.props.classIntoOne} classIntoTwo = {this.props.classIntoTwo} classIntoThree = {this.props.classIntoThree} matchOne = {this.props.matchOne} matchTwo = {this.props.matchTwo} matchThree = {this.props.matchThree} matchOneName = {this.props.matchOneName} matchTwoName = {this.props.matchTwoName} matchThreeName = {this.props.matchThreeName}/></article1>

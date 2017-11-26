@@ -81,4 +81,40 @@ app.post("/", function(req, res){
   });
 });
 
+app.post("/delete1", function(req, res){
+  User.removeTrade1(req.user.emails[0].value, function(err) {
+    User.getMatchesTwo(req.user.emails[0].value, function(err) {
+      User.getMatchesThree(req.user.emails[0].value, function(err) {
+        User.getAll(req.user.emails[0].value, function(user, classesOut, classesInto, matchOne, matchTwo, matchThree, matchOneName, matchTwoName, matchThreeName) {
+          res.render('home', { user: user, classOne: classesOut[0], classTwo: classesOut[1], classThree: classesOut[2], classIntoOne: classesInto[0], classIntoTwo: classesInto[1], classIntoThree: classesInto[2], matchOne: matchOne, matchTwo: matchTwo, matchThree: matchThree, matchOneName: matchOneName, matchTwoName: matchTwoName, matchThreeName: matchThreeName});
+        });
+      });
+    });
+  });
+});
+
+app.post("/delete2", function(req, res){
+  User.removeTrade2(req.user.emails[0].value, function(err) {
+    User.getMatchesOne(req.user.emails[0].value, function(err) {
+      User.getMatchesThree(req.user.emails[0].value, function(err) {
+        User.getAll(req.user.emails[0].value, function(user, classesOut, classesInto, matchOne, matchTwo, matchThree, matchOneName, matchTwoName, matchThreeName) {
+          res.render('home', { user: user, classOne: classesOut[0], classTwo: classesOut[1], classThree: classesOut[2], classIntoOne: classesInto[0], classIntoTwo: classesInto[1], classIntoThree: classesInto[2], matchOne: matchOne, matchTwo: matchTwo, matchThree: matchThree, matchOneName: matchOneName, matchTwoName: matchTwoName, matchThreeName: matchThreeName});
+        });
+      });
+    });
+  });
+});
+
+app.post("/delete3", function(req, res){
+  User.removeTrade3(req.user.emails[0].value, function(err) {
+    User.getMatchesOne(req.user.emails[0].value, function(err) {
+      User.getMatchesTwo(req.user.emails[0].value, function(err) {
+        User.getAll(req.user.emails[0].value, function(user, classesOut, classesInto, matchOne, matchTwo, matchThree, matchOneName, matchTwoName, matchThreeName) {
+          res.render('home', { user: user, classOne: classesOut[0], classTwo: classesOut[1], classThree: classesOut[2], classIntoOne: classesInto[0], classIntoTwo: classesInto[1], classIntoThree: classesInto[2], matchOne: matchOne, matchTwo: matchTwo, matchThree: matchThree, matchOneName: matchOneName, matchTwoName: matchTwoName, matchThreeName: matchThreeName});
+        });
+      });
+    });
+  });
+});
+
 app.listen(process.env.PORT || 3000);

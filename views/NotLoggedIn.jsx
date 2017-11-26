@@ -25,7 +25,6 @@ const mainText3 = {
 };
 
 class NotLoggedIn extends React.Component {
-//{this.props.user.displayName}
   render() {
     return <Style>
     {`
