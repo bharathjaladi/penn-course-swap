@@ -5,49 +5,44 @@ export default class Matches extends React.Component {
 
     render() {
         if(this.props.match) {
-        return <Style>
+            return <Style>
             
             {`
-            
-                #main2 {
+
+                .name1 { 
+                    font-family: Oswald,sans-serif;
+                    font-size: 1em;
+                    color: #1098F7;
+                    padding: 0.18em;
                     margin: 0;
-                    padding: 0;
-                    display: flex;
-                    flex-flow: row;
                 }
-             
-                #main2 > article2 {
-                    margin: 4px;
-                    padding: 5px;
-                    border: 1px solid #cccc33;
-                    border-radius: 7pt;
-                    background: #FFFFFF;
-                    flex: 2 1 100%;
-                    order: 0;
-                    max-width: 100%;
-                    min-width: 100%;
-                }
-             
-                /* Too narrow to support three columns */
-                @media all {
-                    #main, #page {
-                        flex-direction: column;
-                    }
             
-                    #main2 > article2, #main > nav, #main > aside {
-                    /* Return them to document order */
-                        order: 0;
-                    }
-              `}     
-         <body>
-         <div id='main2'>
-         <article2>
-                You have been matched with {this.props.matchName}. You can contact your match at {this.props.match}. Make the swap happen! Good luck!
-           </article2>
-         </div>
-       </body>
-       </Style>
+            `}   
+        <div><head><link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" /></head>       
+        <body>
+        <div id='main'>
+        <article>
+            <p className="name1">You have been matched with {this.props.matchName}.</p>
+            <p className="name1">Swap Details:<br/>You requested to swap {this.props.class} for {this.props.classInto}.
+            <br/>{this.props.matchName} requested to swap {this.props.classInto} for {this.props.class}.</p>
+            <p className="name1">You can contact your match at {this.props.match}. Good luck!</p>
+        </article>
+        </div>
+    </body></div>
+    </Style>;}
+        else return <Style>
         
+        {`
+
+            .name1 { 
+                font-family: Oswald,sans-serif;
+                font-size: 1em;
+                color: #1098F7;
+                padding: 0.18em;
+                margin: 0;
+            }
         
-        ;}
-        else return <body><p>No matches yet!</p></body>;}}
+        `}   
+    <div><head><link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" /></head>       
+    <body><div id='main'><article><p className="name1">No matches yet! Request some more swaps and check back later to see if you have a match!</p></article></div></body></div>
+</Style>;}}

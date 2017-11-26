@@ -1,6 +1,6 @@
 var React = require('react');
 import Match from './Match.jsx';
-import Pending from './Pending.jsx';
+import Help from './Help.jsx';
 import Style from 'style-it';
 
 export default class Matches extends React.Component {
@@ -10,11 +10,11 @@ export default class Matches extends React.Component {
             
             {`
                 body {
-                    font: 24px Helvetica;
+                    font: 1.5em Helvetica;
                     background: #999999;
                 }
             
-                #main2 {
+                #main {
                     min-height: 100px;
                     margin: 0;
                     padding: 0;
@@ -22,14 +22,13 @@ export default class Matches extends React.Component {
                     flex-flow: row;
                 }
              
-                #main2 > article2 {
+                #main > article {
                     margin: 4px;
                     padding: 5px;
-                    border: 1px solid #cccc33;
-                    border-radius: 7pt;
-                    background: rgba(20,70,160, 0.9);
                     flex: 2 1 100%;
                     order: 2;
+                    border-radius: 7pt;
+                    background: #F0F8FF;
                 }
              
                 /* Too narrow to support three columns */
@@ -38,16 +37,17 @@ export default class Matches extends React.Component {
                         flex-direction: column;
                     }
             
-                    #main2 > article2, #main > nav, #main > aside {
+                    #main > article, #main > nav, #main > aside {
                     /* Return them to document order */
                         order: 0;
                     }
                 
               `}     
          <body>
-            <Match user = {this.props.user} class = {this.props.classOne} match = {this.props.matchOne} matchName = {this.props.matchOneName}/>
-            <Match user = {this.props.user} class = {this.props.classTwo} match = {this.props.matchTwo} matchName = {this.props.matchTwoName}/>
-            <Match user = {this.props.user} class = {this.props.classTwo} match = {this.props.matchThree} matchName = {this.props.matchThreeName}/>
+            <Match user = {this.props.user} class = {this.props.classOne} classInto = {this.props.classIntoOne} match = {this.props.matchOne} matchName = {this.props.matchOneName}/>
+            <Match user = {this.props.user} class = {this.props.classTwo} classInto = {this.props.classIntoTwo} match = {this.props.matchTwo} matchName = {this.props.matchTwoName}/>
+            <Match user = {this.props.user} class = {this.props.classThree} classInto = {this.props.classIntoThree} match = {this.props.matchThree} matchName = {this.props.matchThreeName}/>
+            <Help />
        </body>
        </Style>
         

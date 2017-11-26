@@ -1,5 +1,4 @@
 var React = require('react');
-import Match from './Match.jsx';
 import Pending from './Pending.jsx';
 import Style from 'style-it';
 
@@ -10,7 +9,7 @@ export default class Pendings extends React.Component {
             
             {`
                 body {
-                    font: 24px Helvetica;
+                    font: 1.5em Helvetica;
                     background: #999999;
                 }
             
@@ -47,7 +46,6 @@ export default class Pendings extends React.Component {
                <Pending user = {this.props.user} class = {this.props.classOne} request = {this.props.classIntoOne}/>
                <Pending user = {this.props.user} class = {this.props.classTwo} request = {this.props.classIntoTwo}/>
                <Pending user = {this.props.user} class = {this.props.classThree} request = {this.props.classIntoThree}/>
-
        </body>
        </Style>
         

@@ -39,7 +39,7 @@ var userSchema = new Schema({
 // });
 
 userSchema.statics.addUser = function(name, email, cb) {
-  var newUser = new this({ name: name, email: email, classOne: null, classTwo: null, classThree: null, matchOne: null, matchTwo: null, matchThree: null});
+  var newUser = new this({ name: name, email: email, classOne: null, classTwo: null, classThree: null, classIntoOne: null, classIntoTwo: null, classIntoThree: null, matchOne: null, matchTwo: null, matchThree: null, matchOneName: null, matchTwoName: null, matchThreeName: null});
   this.findOne({ email: email }, function(err, user) {
     if(!user) {
       newUser.save(cb);
@@ -133,18 +133,34 @@ userSchema.statics.removeTrade1 = function(email, cb) {
             user2.matchThreeName = null;
           }
           user2.save(function(err) {
-            user.classOne = null;
-            user.classIntoOne = null;
-            user.matchOne = null;
-            user.matchOneName = null;
+            user.classOne = user.classTwo;
+            user.classIntoOne = user.classIntoTwo;
+            user.matchOne = user.matchTwo;
+            user.matchOneName = user.matchTwoName;
+            user.classTwo = user.classThree;
+            user.classIntoTwo = user.classIntoThree;
+            user.matchTwo = user.matchThree;
+            user.matchTwoName = user.matchThreeName;
+            user.classThree = null;
+            user.classIntoThree = null;
+            user.matchThree = null;
+            user.matchThreeName = null;
             user.save(cb);
          });
       })}
       else {
-        user.classOne = null;
-        user.classIntoOne = null;
-        user.matchOne = null;
-        user.matchOneName = null;
+        user.classOne = user.classTwo;
+        user.classIntoOne = user.classIntoTwo;
+        user.matchOne = user.matchTwo;
+        user.matchOneName = user.matchTwoName;
+        user.classTwo = user.classThree;
+        user.classIntoTwo = user.classIntoThree;
+        user.matchTwo = user.matchThree;
+        user.matchTwoName = user.matchThreeName;
+        user.classThree = null;
+        user.classIntoThree = null;
+        user.matchThree = null;
+        user.matchThreeName = null;
         user.save(cb);
       }
     };
@@ -169,18 +185,26 @@ userSchema.statics.removeTrade1 = function(email, cb) {
               user2.matchThreeName = null;
             }
             user2.save(function(err) {
-              user.classTwo = null;
-              user.classIntoTwo = null;
-              user.matchTwo = null;
-              user.matchTwoName = null;
+              user.classTwo = user.classThree;
+              user.classIntoTwo = user.classIntoThree;
+              user.matchTwo = user.matchThree;
+              user.matchTwoName = user.matchThreeName;
+              user.classThree = null;
+              user.classIntoThree = null;
+              user.matchThree = null;
+              user.matchThreeName = null;
               user.save(cb);
            });
         })}
         else {
-          user.classTwo = null;
-          user.classIntoTwo = null;
-          user.matchTwo = null;
-          user.matchTwoName = null;
+          user.classTwo = user.classThree;
+          user.classIntoTwo = user.classIntoThree;
+          user.matchTwo = user.matchThree;
+          user.matchTwoName = user.matchThreeName;
+          user.classThree = null;
+          user.classIntoThree = null;
+          user.matchThree = null;
+          user.matchThreeName = null;
           user.save(cb);
         }
       };
