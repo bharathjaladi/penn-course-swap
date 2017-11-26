@@ -13,8 +13,15 @@ export default class Matches extends React.Component {
                     font: 24px Helvetica;
                     background: #999999;
                 }
+
+                .name1 { 
+                    font-family: Oswald,sans-serif;
+                    font-size: 2rem;
+                    color: #1446A0;
+                  }
             
-                #main {
+                  #main {
+                    min-height: 100px;
                     margin: 0;
                     padding: 0;
                     display: flex;
@@ -24,17 +31,14 @@ export default class Matches extends React.Component {
                 #main > article {
                     margin: 4px;
                     padding: 5px;
-                    border: 1px solid #cccc33;
+                    flex: 2 1 100%;
+                    order: 2;
                     border-radius: 7pt;
-                    background: rgba(20,70,160, 0.2);
-                    flex: 2 1 130%;
-                    order: 0;
-                    max-width: 100%;
-                    min-width: 100%;
+                    background: #F0F8FF;
                 }
              
                 /* Too narrow to support three columns */
-                @media all {
+                @media all and (max-width: 640px) {
                     #main, #page {
                         flex-direction: column;
                     }
@@ -43,22 +47,16 @@ export default class Matches extends React.Component {
                     /* Return them to document order */
                         order: 0;
                     }
-              
-                    #main > nav, #main > aside, header, footer {
-                        min-height: 50px;
-                        max-height: 50px;
-                    }
                 
-              `}     
+              `}   
+         <div><head><link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"></link></head>       
          <body>
          <div id='main'>
-         <article>
+         <article class="name1">
                You requested to swap {this.props.class} for {this.props.request}. We'll let you know when there's a match!
            </article>
          </div>
-       </body>
+       </body></div>
        </Style>
-        
-        
         ;}
-        else return <body><p><Form user = {this.props.user}/></p></body>;}}
+        else return <body><div id='main'><article><Form user = {this.props.user}/></article></div></body>;}}

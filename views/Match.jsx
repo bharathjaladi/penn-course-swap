@@ -8,25 +8,21 @@ export default class Matches extends React.Component {
         return <Style>
             
             {`
-                body {
-                    font: 24px Helvetica;
-                    background: #999999;
-                }
             
-                #main {
+                #main2 {
                     margin: 0;
                     padding: 0;
                     display: flex;
                     flex-flow: row;
                 }
              
-                #main > article {
+                #main2 > article2 {
                     margin: 4px;
                     padding: 5px;
                     border: 1px solid #cccc33;
                     border-radius: 7pt;
-                    background: rgba(20,70,160, 0.2);
-                    flex: 2 1 130%;
+                    background: #FFFFFF;
+                    flex: 2 1 100%;
                     order: 0;
                     max-width: 100%;
                     min-width: 100%;
@@ -38,22 +34,16 @@ export default class Matches extends React.Component {
                         flex-direction: column;
                     }
             
-                    #main > article, #main > nav, #main > aside {
+                    #main2 > article2, #main > nav, #main > aside {
                     /* Return them to document order */
                         order: 0;
                     }
-              
-                    #main > nav, #main > aside, header, footer {
-                        min-height: 50px;
-                        max-height: 50px;
-                    }
-                
               `}     
          <body>
-         <div id='main'>
-         <article>
-               You have been matched with {this.props.match}.
-           </article>
+         <div id='main2'>
+         <article2>
+                You have been matched with {this.props.matchName}. You can contact your match at {this.props.match}. Make the swap happen! Good luck!
+           </article2>
          </div>
        </body>
        </Style>
