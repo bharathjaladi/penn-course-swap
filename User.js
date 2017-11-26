@@ -90,6 +90,10 @@ userSchema.statics.addUser = function(name, email, cb) {
 userSchema.statics.addTrade = function(email, out, into, cb) {
   this.findOne({email: email}, function(err, user) {
     if(user) {
+      if(user.classOne === out && user.classIntoOne === into) cb();
+      else if(user.classTwo === out && user.classIntoTwo === into) cb();
+      else if(user.classThree === out && user.classIntoThree === into) cb();
+      else {
       if(user.classOne) {
         if(user.classTwo) {
           user.classThree = out;
@@ -106,7 +110,7 @@ userSchema.statics.addTrade = function(email, out, into, cb) {
       user.classOne = out;
       user.classIntoOne = into;
       user.save(cb);
-      }}
+      }}}
   });
 }
 

@@ -52,7 +52,7 @@ export default class Matches extends React.Component {
          <div><head><link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"></link></head>       
          <body>
          <div id='main'>
-         <article class="name1">
+         <article className="name1">
                You requested to swap {this.props.class} for {this.props.request}. We'll let you know when there's a match!
            </article>
          </div>
