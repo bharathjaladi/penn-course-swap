@@ -32,7 +32,7 @@ export default class HelpForm extends React.Component {
     
         width: 1.3em;
         height: 1.3em;
-        padding: 0.3em;
+        padding: 0.2em;
         
         background: #42CAFD;
         color: #F0F8FF;
