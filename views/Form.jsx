@@ -80,7 +80,8 @@ export default class Form extends React.Component {
   </div>
 </fieldset>
 </form>
-             </div></div></Style>
+             </div></div>
+  </Style>
    )
   }
  }
