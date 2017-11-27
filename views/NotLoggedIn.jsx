@@ -35,6 +35,7 @@ class NotLoggedIn extends React.Component {
       .loginBtn {
         box-sizing: border-box;
         position: relative;
+        height: 34 px;
         width: 12.1em;
         padding: 0 15px 0 46px;
         border: none;
@@ -83,6 +84,7 @@ class NotLoggedIn extends React.Component {
       .loginBtn2 {
         box-sizing: border-box;
         position: relative;
+        height: 34px;
         width: 12.1em;
         border: none;
         text-align: left;
