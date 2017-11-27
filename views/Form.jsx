@@ -27,6 +27,24 @@ export default class Form extends React.Component {
    event.preventDefault();
    axios.post('/', {out: this.state.out, into: this.state.into});
   }
+
+  componentWillMount () {
+    const script = document.createElement("script");
+
+    script.src = "//code.jquery.com/jquery-1.11.2.min.js";
+    script.async = true;
+
+    document.body.appendChild(script);
+
+    const script2 = document.createElement("script");
+    
+        script2.src = "./test.js";
+        script2.async = true;
+    
+        document.body.appendChild(script2);
+    
+        
+}
  
   render () {
    return (
@@ -80,6 +98,7 @@ export default class Form extends React.Component {
   </div>
 </fieldset>
 </form>
+<input id="basics" />
              </div></div></Style>
    )
   }
