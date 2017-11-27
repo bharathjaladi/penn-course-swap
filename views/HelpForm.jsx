@@ -39,7 +39,7 @@ export default class HelpForm extends React.Component {
         text-align: center;
         display: inline-block;
         
-        font: 1.1em Oswald, sans-serif;
+        font: 1.2em Oswald, sans-serif;
         margin: 0 auto;
     }
   
