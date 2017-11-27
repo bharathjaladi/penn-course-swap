@@ -48,11 +48,17 @@ export default class Form extends React.Component {
        }
        .pure-control-group {
          text-align: center;
+         display: inline-block;
        }
 
        .pure-test {
         text-align: center;
         padding-top: 0.35em;
+      }
+
+      .pure-form-aligned {
+        text-align:center;
+        display: inline-block;
       }
        `}
      <div>
@@ -62,12 +68,12 @@ export default class Form extends React.Component {
   <fieldset>
   <div className="pure-control-group">
       <label htmlFor="out" className="oswald">Class you want to swap out</label>
-      <input id="out" type="text" name="out" className="oswald2" value={this.state.out} onChange={this.handleChangeOut} placeholder="e.g. ACCT-101-003" />
+      <input id="out" type="text" name="out" className="oswald2" value={this.state.out} onChange={this.handleChangeOut} placeholder="e.g. CIS-121-001" />
   </div>
 
   <div className="pure-control-group">
       <label htmlFor="into" className="oswald">Class you want to swap in</label>
-      <input id="into" type="text" name="into" className="oswald2" value={this.state.into} onChange={this.handleChangeInto} placeholder="e.g. ACCT-102-001" />
+      <input id="into" type="text" name="into" className="oswald2" value={this.state.into} onChange={this.handleChangeInto} placeholder="e.g. FNCE-100-002" />
   </div>
   <div className="pure-test">
       <button type="submit" className="pure-button pure-input-rounded oswald3">Swap!</button>

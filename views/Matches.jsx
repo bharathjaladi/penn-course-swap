@@ -44,9 +44,9 @@ export default class Matches extends React.Component {
                 
               `}     
          <body>
-            <Match user = {this.props.user} class = {this.props.classOne} classInto = {this.props.classIntoOne} match = {this.props.matchOne} matchName = {this.props.matchOneName}/>
-            <Match user = {this.props.user} class = {this.props.classTwo} classInto = {this.props.classIntoTwo} match = {this.props.matchTwo} matchName = {this.props.matchTwoName}/>
-            <Match user = {this.props.user} class = {this.props.classThree} classInto = {this.props.classIntoThree} match = {this.props.matchThree} matchName = {this.props.matchThreeName}/>
+            <Match user = {this.props.user} class = {this.props.classOne} classInto = {this.props.classIntoOne} match = {this.props.matchOne} matchName = {this.props.matchOneName} matchNum = 'one'/>
+            <Match user = {this.props.user} class = {this.props.classTwo} classInto = {this.props.classIntoTwo} match = {this.props.matchTwo} matchName = {this.props.matchTwoName} matchBefore = {this.props.matchOne}/>
+            <Match user = {this.props.user} class = {this.props.classThree} classInto = {this.props.classIntoThree} match = {this.props.matchThree} matchName = {this.props.matchThreeName} matchBefore = {this.props.matchTwo}/>
             <Help />
        </body>
        </Style>

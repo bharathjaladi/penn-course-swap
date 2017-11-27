@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 passport.use(new Strategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: 'http://localhost:3000/login/google/return'
+    callbackURL: 'http://localhost:3000/login/google/return',
   },
   function(accessToken, refreshToken, profile, cb) {
     return cb(null, profile);
@@ -53,12 +53,13 @@ app.get('/',
 });
 
 app.get('/login/google',
-passport.authenticate('google', { scope: ['profile', 'email'], hd: 'upenn.edu' }));
+passport.authenticate('google', { scope: ['profile', 'email']}));
 
 app.get('/login/google/return', 
 passport.authenticate('google', { failureRedirect: '/login/google'}),
 function(req, res) {
-  res.redirect('/');
+  if(req.user.emails[0].value.substring(req.user.emails[0].value.length-9).toLowerCase() != 'upenn.edu') res.redirect('/login/google');
+  else res.redirect('/');
 });
 
 app.use(bodyParser.urlencoded({

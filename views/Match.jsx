@@ -30,7 +30,7 @@ export default class Matches extends React.Component {
         </div>
     </body></div>
     </Style>;}
-        else return <Style>
+        else if(this.props.matchNum) {return <Style>
         
         {`
 
@@ -44,5 +44,23 @@ export default class Matches extends React.Component {
         
         `}   
     <div><head><link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" /></head>       
-    <body><div id='main'><article><p className="name1">No matches yet! Request some more swaps and check back later to see if you have a match!</p></article></div></body></div>
-</Style>;}}
+    <body><div id='main'><article><p className="name1">No matches yet! Check back later to see if you have a match!</p></article></div></body></div>
+</Style>;}
+else if(this.props.matchBefore) {return <Style>
+    
+    {`
+
+        .name1 { 
+            font-family: Oswald,sans-serif;
+            font-size: 1em;
+            color: #1098F7;
+            padding: 0.18em;
+            margin: 0;
+        }
+    
+    `}   
+<div><head><link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" /></head>       
+<body><div id='main'><article><p className="name1">No more matches yet! Check back later to see if you have another match!</p></article></div></body></div>
+</Style>;}
+
+else return null;}}

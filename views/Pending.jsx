@@ -85,4 +85,5 @@ export default class Pending extends React.Component {
         </Style>;}
        
     }
-        else return <body><div id='main'><article><Form user = {this.props.user}/></article></div></body>;}}
+        else if(this.props.classBefore) { return <body><div id='main'><article><Form user = {this.props.user}/></article></div></body>;}
+        else return null;}}

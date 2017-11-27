@@ -35,17 +35,12 @@ export default class Pendings extends React.Component {
                     #main, #page {
                         flex-direction: column;
                     }
-            
-                    #main > article, #main > nav, #main > aside {
-                    /* Return them to document order */
-                        order: 0;
-                    }
                 
               `}     
          <body>
-               <Pending user = {this.props.user} class = {this.props.classOne} request = {this.props.classIntoOne}/>
-               <Pending user = {this.props.user} class = {this.props.classTwo} request = {this.props.classIntoTwo}/>
-               <Pending user = {this.props.user} class = {this.props.classThree} request = {this.props.classIntoThree}/>
+               <Pending user = {this.props.user} class = {this.props.classOne} request = {this.props.classIntoOne} classBefore = 'placeholder'/>
+               <Pending user = {this.props.user} class = {this.props.classTwo} request = {this.props.classIntoTwo} classBefore = {this.props.classOne}/>
+               <Pending user = {this.props.user} class = {this.props.classThree} request = {this.props.classIntoThree} classBefore = {this.props.classTwo}/>
        </body>
        </Style>
         

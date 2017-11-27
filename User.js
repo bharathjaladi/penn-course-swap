@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/newDb');
+mongoose.connect('mongodb://bjaladi:penncourseswap1@ds121686.mlab.com:21686/penncourseswap');
 var Schema = mongoose.Schema;
 //var bcrypt = require('bcrypt');
 
@@ -39,7 +39,7 @@ var userSchema = new Schema({
 // });
 
 userSchema.statics.addUser = function(name, email, cb) {
-  var newUser = new this({ name: name, email: email, classOne: null, classTwo: null, classThree: null, classIntoOne: null, classIntoTwo: null, classIntoThree: null, matchOne: null, matchTwo: null, matchThree: null, matchOneName: null, matchTwoName: null, matchThreeName: null});
+  var newUser = new this({ name: name, email: email});
   this.findOne({ email: email }, function(err, user) {
     if(!user) {
       newUser.save(cb);
