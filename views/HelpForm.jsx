@@ -86,6 +86,7 @@ export default class HelpForm extends React.Component {
       padding: 20px;
       background: #F0F8FF;
       border-radius: 5px;
+      width: 90%;
       position: relative;
       transition: all 5s ease-in-out;
     }

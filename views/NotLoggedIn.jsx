@@ -210,7 +210,7 @@ class NotLoggedIn extends React.Component {
     padding: 20px;
     background: #F0F8FF;
     border-radius: 5px;
-    width: 33%;
+    width: 40%;
     position: relative;
     transition: all 5s ease-in-out;
   }
