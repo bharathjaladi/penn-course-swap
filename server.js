@@ -1,6 +1,6 @@
 var express = require('express');
 var passport = require('passport');
-var Strategy = require('passport-google-oauth20').Strategy;
+var Strategy = require('passport-google-oauth2').Strategy;
 var User = require('./User');
 var bodyParser = require('body-parser');
 
