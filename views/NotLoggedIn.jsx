@@ -35,7 +35,7 @@ class NotLoggedIn extends React.Component {
       .loginBtn {
         box-sizing: border-box;
         position: relative;
-        /* width: 13em;  - apply for fixed size */
+        width: 12.1em;
         padding: 0 15px 0 46px;
         border: none;
         text-align: left;
