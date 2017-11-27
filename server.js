@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 passport.use(new Strategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: 'http://penncourseswap.com/login/google/return',
+    callbackURL: 'http://www.penncourseswap.com/login/google/return',
   },
   function(accessToken, refreshToken, profile, cb) {
     return cb(null, profile);
