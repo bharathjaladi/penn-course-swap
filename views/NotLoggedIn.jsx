@@ -171,7 +171,7 @@ class NotLoggedIn extends React.Component {
     display: inline-block;
     margin: 0 auto;
     padding: 1em;
-    font: 1.5em Oswald, sans-serif;
+    font: 5vw Oswald, sans-serif;
     color: #1446A0;
     margin: 0 auto;
   }
