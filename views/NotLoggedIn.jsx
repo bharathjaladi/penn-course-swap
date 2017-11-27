@@ -73,7 +73,7 @@ class NotLoggedIn extends React.Component {
       }
       .loginBtn--google:before {
         border-right: #376DC8 1px solid;
-        background: url('https://image.ibb.co/nBVTJR/nexus2cee_new_google_icon.png') 2px 2px no-repeat;
+        background: url('https://image.ibb.co/nBVTJR/nexus2cee_new_google_icon.png') 5px 2px no-repeat;
         background-size: 30px;
       }
       .loginBtn--google:hover,
