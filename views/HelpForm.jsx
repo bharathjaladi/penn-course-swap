@@ -30,8 +30,8 @@ export default class HelpForm extends React.Component {
         border-radius: 50%;
         behavior: url(PIE.htc); /* remove if you don't care about IE8 */
     
-        width: 1.5em;
-        height: 1.5em;
+        width: 1.3em;
+        height: 1.3em;
         padding: 0.3em;
         
         background: #42CAFD;
@@ -39,7 +39,7 @@ export default class HelpForm extends React.Component {
         text-align: center;
         display: inline-block;
         
-        font: 1.3em Oswald, sans-serif;
+        font: 1.1em Oswald, sans-serif;
         margin: 0 auto;
     }
   
