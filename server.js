@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 passport.use(new Strategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: 'http://www.penncourseswap.com/login/google/return',
+    callbackURL: 'http://localhost:3000/login/google/return',
   },
   function(accessToken, refreshToken, profile, cb) {
     return cb(null, profile);
@@ -102,6 +102,36 @@ app.post("/delete2", function(req, res){
 
 app.post("/delete3", function(req, res){
   User.removeTrade3(req.user.emails[0].value, function(err) {
+    User.getMatchesOne(req.user.emails[0].value, function(err) {
+      User.getMatchesTwo(req.user.emails[0].value, function(err) {
+        res.redirect('/');
+      });
+    });
+  });
+});
+
+app.post("/complete1", function(req, res){
+  User.completeTrade1(req.user.emails[0].value, function(err) {
+    User.getMatchesTwo(req.user.emails[0].value, function(err) {
+      User.getMatchesThree(req.user.emails[0].value, function(err) {
+        res.redirect('/');
+        });
+      });
+    });
+  });
+
+app.post("/complete2", function(req, res){
+  User.completeTrade2(req.user.emails[0].value, function(err) {
+    User.getMatchesOne(req.user.emails[0].value, function(err) {
+      User.getMatchesThree(req.user.emails[0].value, function(err) {
+          res.redirect('/');
+      });
+    });
+  });
+});
+
+app.post("/complete3", function(req, res){
+  User.completeTrade3(req.user.emails[0].value, function(err) {
     User.getMatchesOne(req.user.emails[0].value, function(err) {
       User.getMatchesTwo(req.user.emails[0].value, function(err) {
         res.redirect('/');

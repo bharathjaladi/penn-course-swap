@@ -246,6 +246,156 @@ userSchema.statics.removeTrade1 = function(email, cb) {
         };
       });}
 
+      userSchema.statics.completeTrade1 = function(email, cb) {
+        var that = this;
+        this.findOne({email: email}, function(err, user) {
+          if(user) {
+            if(user.matchOne) {
+              that.findOne({ email: user.matchOne}, function(err, user2) {
+                if(user2.classOne === user.classIntoOne && user2.classIntoOne === user.classOne) {
+                  user2.matchOne = null;
+                  user2.matchOneName = null;
+                  user2.classOne = null;
+                  user2.classIntoOne = null;
+                }
+                else if(user2.classTwo === user.classIntoOne && user2.classIntoTwo === user.classOne) {
+                  user2.matchTwo = null;
+                  user2.matchTwoName = null;
+                  user2.classTwo = null;
+                  user2.classIntoTwo = null;
+                }
+                else {
+                  user2.matchThree = null;
+                  user2.matchThreeName = null;
+                  user2.classThree = null;
+                  user2.classIntoThree = null;
+                }
+                user2.save(function(err) {
+                  user.classOne = user.classTwo;
+                  user.classIntoOne = user.classIntoTwo;
+                  user.matchOne = user.matchTwo;
+                  user.matchOneName = user.matchTwoName;
+                  user.classTwo = user.classThree;
+                  user.classIntoTwo = user.classIntoThree;
+                  user.matchTwo = user.matchThree;
+                  user.matchTwoName = user.matchThreeName;
+                  user.classThree = null;
+                  user.classIntoThree = null;
+                  user.matchThree = null;
+                  user.matchThreeName = null;
+                  user.save(cb);
+               });
+            })}
+            else {
+              user.classOne = user.classTwo;
+              user.classIntoOne = user.classIntoTwo;
+              user.matchOne = user.matchTwo;
+              user.matchOneName = user.matchTwoName;
+              user.classTwo = user.classThree;
+              user.classIntoTwo = user.classIntoThree;
+              user.matchTwo = user.matchThree;
+              user.matchTwoName = user.matchThreeName;
+              user.classThree = null;
+              user.classIntoThree = null;
+              user.matchThree = null;
+              user.matchThreeName = null;
+              user.save(cb);
+            }
+          };
+        });}
+
+        userSchema.statics.completeTrade2 = function(email, cb) {
+          var that = this;
+          this.findOne({email: email}, function(err, user) {
+            if(user) {
+              if(user.matchTwo) {
+                that.findOne({ email: user.matchTwo}, function(err, user2) {
+                  if(user2.classOne === user.classIntoTwo && user2.classIntoOne === user.classTwo) {
+                    user2.matchOne = null;
+                    user2.matchOneName = null;
+                    user2.classOne = null;
+                    user2.classIntoOne = null;
+                  }
+                  else if(user2.classTwo === user.classIntoTwo && user2.classIntoTwo === user.classTwo) {
+                    user2.matchTwo = null;
+                    user2.matchTwoName = null;
+                    user2.classTwo = null;
+                    user2.classIntoTwo = null;
+                  }
+                  else {
+                    user2.matchThree = null;
+                    user2.matchThreeName = null;
+                    user2.classThree = null;
+                    user2.classIntoThree = null;
+                  }
+                  user2.save(function(err) {
+                    user.classTwo = user.classThree;
+                    user.classIntoTwo = user.classIntoThree;
+                    user.matchTwo = user.matchThree;
+                    user.matchTwoName = user.matchThreeName;
+                    user.classThree = null;
+                    user.classIntoThree = null;
+                    user.matchThree = null;
+                    user.matchThreeName = null;
+                    user.save(cb);
+                 });
+              })}
+              else {
+                user.classTwo = user.classThree;
+                user.classIntoTwo = user.classIntoThree;
+                user.matchTwo = user.matchThree;
+                user.matchTwoName = user.matchThreeName;
+                user.classThree = null;
+                user.classIntoThree = null;
+                user.matchThree = null;
+                user.matchThreeName = null;
+                user.save(cb);
+              }
+            };
+          });}
+
+          userSchema.statics.completeTrade3 = function(email, cb) {
+            var that = this;
+            this.findOne({email: email}, function(err, user) {
+              if(user) {
+                if(user.matchThree) {
+                  that.findOne({ email: user.matchThree}, function(err, user2) {
+                    if(user2.classOne === user.classIntoTwo && user2.classIntoOne === user.classTwo) {
+                      user2.matchOne = null;
+                      user2.matchOneName = null;
+                      user2.classOne = null;
+                      user2.classIntoOne = null;
+                    }
+                    else if(user2.classTwo === user.classIntoTwo && user2.classIntoTwo === user.classTwo) {
+                      user2.matchTwo = null;
+                      user2.matchTwoName = null;
+                      user2.classTwo = null;
+                      user2.classIntoTwo = null;
+                    }
+                    else {
+                      user2.matchThree = null;
+                      user2.matchThreeName = null;
+                      user2.classThree = null;
+                      user2.classIntoThree = null;
+                    }
+                    user2.save(function(err) {
+                      user.classThree = null;
+                      user.classIntoThree = null;
+                      user.matchThree = null;
+                      user.matchThreeName = null;
+                      user.save(cb);
+                   });
+                })}
+                else {
+                  user.classThree = null;
+                  user.classIntoThree = null;
+                  user.matchThree = null;
+                  user.matchThreeName = null;
+                  user.save(cb);
+                }
+              };
+            });}
+
 userSchema.statics.getMatchesOne = function(email, cb) {
   var that = this;
   this.findOne({ email: email }, function(err, user) {

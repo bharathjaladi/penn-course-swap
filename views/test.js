@@ -1,5 +1,8 @@
 var options = {
-	data: ["blue", "green", "pink", "red", "yellow"]
-};
-
-$("#basics").easyAutocomplete(options);
+	
+	  url: "test.json",
+	
+	  getValue: "name"
+	};
+	
+	$("#countries").easyAutocomplete(options);

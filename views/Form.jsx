@@ -62,7 +62,10 @@ export default class Form extends React.Component {
       }
        `}
      <div>
-     <head><link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" /><link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossOrigin="anonymous" /></head>
+       
+     <head>
+     
+     <link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" /><link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossOrigin="anonymous" /></head>
     <div>
   <form method="post" action="/" className="pure-form pure-form-aligned">
   <fieldset>
@@ -80,7 +83,11 @@ export default class Form extends React.Component {
   </div>
 </fieldset>
 </form>
-             </div></div>
+
+             </div>
+            
+         
+</div>
   </Style>
    )
   }
