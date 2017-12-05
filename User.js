@@ -360,13 +360,13 @@ userSchema.statics.removeTrade1 = function(email, cb) {
               if(user) {
                 if(user.matchThree) {
                   that.findOne({ email: user.matchThree}, function(err, user2) {
-                    if(user2.classOne === user.classIntoTwo && user2.classIntoOne === user.classTwo) {
+                    if(user2.classOne === user.classIntoThree && user2.classIntoOne === user.classThree) {
                       user2.matchOne = null;
                       user2.matchOneName = null;
                       user2.classOne = null;
                       user2.classIntoOne = null;
                     }
-                    else if(user2.classTwo === user.classIntoTwo && user2.classIntoTwo === user.classTwo) {
+                    else if(user2.classTwo === user.classIntoThree && user2.classIntoTwo === user.classThree) {
                       user2.matchTwo = null;
                       user2.matchTwoName = null;
                       user2.classTwo = null;
