@@ -1,6 +1,8 @@
 var React = require('react');
 import Style from 'style-it';
 import ConfirmForm1 from './ConfirmForm1.jsx';
+import ConfirmForm2 from './ConfirmForm2.jsx';
+import ConfirmForm3 from './ConfirmForm3.jsx';
 
 export default class Matches extends React.Component {
 
@@ -90,7 +92,7 @@ export default class Matches extends React.Component {
     </div>
 </body></div>
 </Style>;}}
-        else if(this.props.matchNum && !this.props.otherMatch1 && !this.props.otherMatch2) {return <Style>
+        else if(this.props.matchNum) {return <Style>
         
         {`
 
@@ -106,7 +108,7 @@ export default class Matches extends React.Component {
     <div><head><link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" /></head>       
     <body><div id='main'><article><p className="name1">No matches yet! Check back later to see if you have a match!</p></article></div></body></div>
 </Style>;}
-else if(this.props.matchBefore && !this.props.matchNext) {return <Style>
+else if(this.props.matchBefore) {return <Style>
     
     {`
 
