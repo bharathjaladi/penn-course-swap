@@ -5,11 +5,11 @@ import CompleteForm2 from './CompleteForm2.jsx';
 import Style from 'style-it';
 
 export default class ConfirmForm2 extends React.Component {
-    
-  render () {
-   return (
-     <Style>
-       {`
+
+  render() {
+    return (
+      <Style>
+        {`
 
     a {
     text-decoration:  none;
@@ -105,30 +105,30 @@ export default class ConfirmForm2 extends React.Component {
       }
     }
        `}
-     <div>
-     <head><link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" /><link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossOrigin="anonymous" /></head>
-    <div>
-  <form className="pure-form pure-form-aligned">
-  <fieldset>
-  <div className="pure-test">
-      <button className="pure-button pure-input-rounded oswald3"><a href="#confirm">Yes!</a></button>
-  </div>
-</fieldset>
-</form>
-<div id="confirm" className="overlay">
-	<div className="popup">
-		<h2><p className="awesome2">Just to confirm:</p></h2>
-		<a className="close" href="/">&times;</a>
-		<div className="content">
-    <div className='center'>
-<div className="test">
-<div><p className="info">Have you completed this trade with {this.props.matchName}?</p></div>
-<CompleteForm2 />
-</div></div>
-		</div>
-	</div>
-</div>
-             </div></div></Style>
-   )
+        <div>
+          <head><link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" /><link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossOrigin="anonymous" /></head>
+          <div>
+            <form className="pure-form pure-form-aligned">
+              <fieldset>
+                <div className="pure-test">
+                  <button className="pure-button pure-input-rounded oswald3"><a href="#confirm">Yes!</a></button>
+                </div>
+              </fieldset>
+            </form>
+            <div id="confirm" className="overlay">
+              <div className="popup">
+                <h2><p className="awesome2">Just to confirm:</p></h2>
+                <a className="close" href="/">&times;</a>
+                <div className="content">
+                  <div className='center'>
+                    <div className="test">
+                      <div><p className="info">Have you completed this trade with {this.props.matchName}?</p></div>
+                      <CompleteForm2 />
+                    </div></div>
+                </div>
+              </div>
+            </div>
+          </div></div></Style>
+    )
   }
- }
+}

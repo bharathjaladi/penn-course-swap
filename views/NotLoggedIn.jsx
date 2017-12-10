@@ -27,7 +27,7 @@ const mainText3 = {
 class NotLoggedIn extends React.Component {
   render() {
     return <Style>
-    {`
+      {`
       a {
       text-decoration:  none;
       }
@@ -249,30 +249,31 @@ class NotLoggedIn extends React.Component {
     }
   }
     `}
-    
-    <div><head><link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"></link></head><body style = {bodyStyle}>
-  <div style = {mainText}><span style = {mainText1}>Penn</span><span style = {mainText2}>Course</span><span style = {mainText3}>Swap</span></div><br/>
-  <div className='center'><a href='/login/google'><button className="loginBtn loginBtn--google">Sign in with Google</button></a><a href='#help'><button className="loginBtn2 loginBtn2--google">How does it work?</button></a></div>
-<div id="help" className="overlay">
-	<div className="popup">
-		<h2><p className="awesome2">How it works:</p></h2>
-		<a className="close" href="/">&times;</a>
-		<div className="content">
-    <div className='center'>
-<div className="test">
-<div><div className="numberCircle">1</div><p className="info">Sign in with your Penn Google account</p></div>
-<div><div className="numberCircle">2</div><p className="info">Enter the courses you want to swap</p></div>
-<div><div className="numberCircle">3</div><p className="info">Check back to see if you have matches</p>
-<div><div className="numberCircle">4</div><p className="info">Reach out to your matches and swap!</p></div></div>
-</div></div>
-		</div>
-	</div>
-</div>
-</body><div className="footer">
 
-    <div className="footer_contents">Created by <a className="footer-link" href="http://bharathjaladi.com">Bharath Jaladi</a>. Questions or concerns? Shoot me an <a className="footer-link" href="mailto:bharathjaladi98@gmail.com">email</a>.</div>
+      <div><head><link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"></link></head><body style={bodyStyle}>
+        <div style={mainText}><span style={mainText1}>Penn</span><span style={mainText2}>Course</span><span style={mainText3}>Swap</span></div><br />
+        <div className='center'><a href='/login/google'><button className="loginBtn loginBtn--google">Sign in with Google</button></a><a href='#help'><button className="loginBtn2 loginBtn2--google">How does it work?</button></a></div>
+        <div id="help" className="overlay">
+          <div className="popup">
+            <h2><p className="awesome2">How it works:</p></h2>
+            <a className="close" href="/">&times;</a>
+            <div className="content">
+              <div className='center'>
+                <div className="test">
+                  <div><div className="numberCircle">1</div><p className="info">Sign in with your Penn Google account</p></div>
+                  <div><div className="numberCircle">2</div><p className="info">Enter the courses you want to swap</p></div>
+                  <div><div className="numberCircle">3</div><p className="info">Check back to see if you have matches</p>
+                    <div><div className="numberCircle">4</div><p className="info">Reach out to your matches and swap!</p></div></div>
+                </div></div>
+            </div>
+          </div>
+        </div>
+      </body><div className="footer">
 
-</div></div></Style>;}
+          <div className="footer_contents">Created by <a className="footer-link" href="http://bharathjaladi.com">Bharath Jaladi</a>. Questions or concerns? Shoot me an <a className="footer-link" href="mailto:bharathjaladi98@gmail.com">email</a>.</div>
+
+        </div></div></Style>;
+  }
 }
 
 module.exports = NotLoggedIn;

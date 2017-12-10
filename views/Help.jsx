@@ -6,8 +6,8 @@ export default class Help extends React.Component {
 
     render() {
         return <Style>
-        
-        {`
+
+            {`
 
             .name1 { 
                 font-family: Oswald,sans-serif;
@@ -17,13 +17,15 @@ export default class Help extends React.Component {
                 margin: 0;
             }
         
-        `}   
-    <div><head><link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" /></head>       
-    <body>
-    <div id='main'>
-    <article><p className = "name1">Want to make the most of Penn Course Swap?</p>
-        <HelpForm />
-    </article>
-    </div>
-</body></div>
-</Style>;}}
+        `}
+            <div><head><link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" /></head>
+                <body>
+                    <div id='main'>
+                        <article><p className="name1">Want to make the most of Penn Course Swap?</p>
+                            <HelpForm />
+                        </article>
+                    </div>
+                </body></div>
+        </Style>;
+    }
+}

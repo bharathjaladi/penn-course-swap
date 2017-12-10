@@ -25,10 +25,10 @@ const mainText3 = {
 class HomePage extends React.Component {
 
   render() {
-  if(this.props.user) { 
-    return <Style> 
+    if (this.props.user) {
+      return <Style>
 
-    {`
+        {`
 
       .mainText {
           font-size: 4em;
@@ -137,19 +137,20 @@ class HomePage extends React.Component {
       }
     }
     `}
-    <div><head><link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"></link></head>
-    <body style={bodyStyle}><div className="header"><div className="name1"><p className="header1">Hi, {this.props.user.name}!</p><p className="header2">Done swapping for now? <a className="name1" href="/logout">Log out</a>.</p></div><div className="clear"/></div>
-    <div className="mainText"><span style = {mainText1}>Penn</span><span style = {mainText2}>Course</span><span style = {mainText3}>Swap</span></div>
-    <div id="main1">
-    <article1><Pendings user = {this.props.user} classOne = {this.props.classOne} classTwo = {this.props.classTwo} classThree = {this.props.classThree} classIntoOne = {this.props.classIntoOne} classIntoTwo = {this.props.classIntoTwo} classIntoThree = {this.props.classIntoThree} matchOne = {this.props.matchOne} matchTwo = {this.props.matchTwo} matchThree = {this.props.matchThree}/></article1>
-    <article1><Matches user = {this.props.user} classOne = {this.props.classOne} classTwo = {this.props.classTwo} classThree = {this.props.classThree} classIntoOne = {this.props.classIntoOne} classIntoTwo = {this.props.classIntoTwo} classIntoThree = {this.props.classIntoThree} matchOne = {this.props.matchOne} matchTwo = {this.props.matchTwo} matchThree = {this.props.matchThree} matchOneName = {this.props.matchOneName} matchTwoName = {this.props.matchTwoName} matchThreeName = {this.props.matchThreeName}/></article1>
-    </div></body><div className="footer">
+        <div><head><link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"></link></head>
+          <body style={bodyStyle}><div className="header"><div className="name1"><p className="header1">Hi, {this.props.user.name}!</p><p className="header2">Done swapping for now? <a className="name1" href="/logout">Log out</a>.</p></div><div className="clear" /></div>
+            <div className="mainText"><span style={mainText1}>Penn</span><span style={mainText2}>Course</span><span style={mainText3}>Swap</span></div>
+            <div id="main1">
+              <article1><Pendings user={this.props.user} classOne={this.props.classOne} classTwo={this.props.classTwo} classThree={this.props.classThree} classIntoOne={this.props.classIntoOne} classIntoTwo={this.props.classIntoTwo} classIntoThree={this.props.classIntoThree} matchOne={this.props.matchOne} matchTwo={this.props.matchTwo} matchThree={this.props.matchThree} /></article1>
+              <article1><Matches user={this.props.user} classOne={this.props.classOne} classTwo={this.props.classTwo} classThree={this.props.classThree} classIntoOne={this.props.classIntoOne} classIntoTwo={this.props.classIntoTwo} classIntoThree={this.props.classIntoThree} matchOne={this.props.matchOne} matchTwo={this.props.matchTwo} matchThree={this.props.matchThree} matchOneName={this.props.matchOneName} matchTwoName={this.props.matchTwoName} matchThreeName={this.props.matchThreeName} /></article1>
+            </div></body><div className="footer">
 
-    <div className="footer_contents">Created by <a className="footer-link" href="http://bharathjaladi.com">Bharath Jaladi</a>. Questions or concerns? Shoot me an <a className="footer-link" href="mailto:bharathjaladi98@gmail.com">email</a>.</div>
+            <div className="footer_contents">Created by <a className="footer-link" href="http://bharathjaladi.com">Bharath Jaladi</a>. Questions or concerns? Shoot me an <a className="footer-link" href="mailto:bharathjaladi98@gmail.com">email</a>.</div>
 
-</div></div></Style>;}
+          </div></div></Style>;
+    }
 
-  else {return <NotLoggedIn/>;}
+    else { return <NotLoggedIn />; }
   }
 }
 

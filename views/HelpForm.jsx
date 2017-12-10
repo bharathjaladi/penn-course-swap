@@ -4,11 +4,11 @@ var purecss = require('purecss');
 import Style from 'style-it';
 
 export default class HelpForm extends React.Component {
-    
-  render () {
-   return (
-     <Style>
-       {`
+
+  render() {
+    return (
+      <Style>
+        {`
 
     a {
     text-decoration:  none;
@@ -123,35 +123,35 @@ export default class HelpForm extends React.Component {
       }
     }
        `}
-     <div>
-     <head><link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" /><link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossOrigin="anonymous" /></head>
-    <div>
-  <form className="pure-form pure-form-aligned">
-  <fieldset>
-  <div className="pure-test">
-      <button className="pure-button pure-input-rounded oswald3"><a href="#tips">Yes!</a></button>
-  </div>
-</fieldset>
-</form>
-<div id="tips" className="overlay">
-	<div className="popup">
-		<h2><p className="awesome2">Here are some helpful tips:</p></h2>
-		<a className="close" href="/">&times;</a>
-		<div className="content">
-    <div className='center'>
-<div className="test">
-<div><div className="numberCircle">1</div><p className="info">Penn Course Swap does NOT make any swaps for you. It simply matches you with students who you could swap with.</p></div>
-<div><div className="numberCircle">2</div><p className="info">You have to reach out to your matches and figure out how you can swap courses with them.</p></div>
-<div><div className="numberCircle">3</div><p className="info">Swapping courses might involve going on Penn InTouch and dropping/adding courses 
+        <div>
+          <head><link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" /><link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossOrigin="anonymous" /></head>
+          <div>
+            <form className="pure-form pure-form-aligned">
+              <fieldset>
+                <div className="pure-test">
+                  <button className="pure-button pure-input-rounded oswald3"><a href="#tips">Yes!</a></button>
+                </div>
+              </fieldset>
+            </form>
+            <div id="tips" className="overlay">
+              <div className="popup">
+                <h2><p className="awesome2">Here are some helpful tips:</p></h2>
+                <a className="close" href="/">&times;</a>
+                <div className="content">
+                  <div className='center'>
+                    <div className="test">
+                      <div><div className="numberCircle">1</div><p className="info">Penn Course Swap does NOT make any swaps for you. It simply matches you with students who you could swap with.</p></div>
+                      <div><div className="numberCircle">2</div><p className="info">You have to reach out to your matches and figure out how you can swap courses with them.</p></div>
+                      <div><div className="numberCircle">3</div><p className="info">Swapping courses might involve going on Penn InTouch and dropping/adding courses
  simultaneously with your match.</p></div>
-<div><div className="numberCircle">4</div><p className="info">Penn Course Swap can make no guarantees, but aims to help you try and find students to swap courses with.</p>
-<div><div className="numberCircle">5</div><p className="info">For best results, make sure to
+                      <div><div className="numberCircle">4</div><p className="info">Penn Course Swap can make no guarantees, but aims to help you try and find students to swap courses with.</p>
+                        <div><div className="numberCircle">5</div><p className="info">For best results, make sure to
  submit course names in the EXACT format specified (with capital letters and dashes).</p></div></div>
-</div></div>
-		</div>
-	</div>
-</div>
-             </div></div></Style>
-   )
+                    </div></div>
+                </div>
+              </div>
+            </div>
+          </div></div></Style>
+    )
   }
- }
+}

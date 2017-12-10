@@ -7,7 +7,7 @@ export default class Matches extends React.Component {
 
     render() {
         return <Style>
-            
+
             {`
                 body {
                     font: 1.5em Helvetica;
@@ -42,16 +42,17 @@ export default class Matches extends React.Component {
                         order: 0;
                     }
                 
-              `}     
-         <body>
-            <Match user = {this.props.user} class = {this.props.classOne} classInto = {this.props.classIntoOne} match = {this.props.matchOne} matchName = {this.props.matchOneName} matchNum = 'one' otherMatch1 = {this.props.matchTwo} otherMatch2 = {this.props.matchThree}/>
-            <Match user = {this.props.user} class = {this.props.classTwo} classInto = {this.props.classIntoTwo} match = {this.props.matchTwo} matchName = {this.props.matchTwoName} matchBefore = {this.props.matchOne} matchNext = {this.props.matchThree}/>
-            <Match user = {this.props.user} class = {this.props.classThree} classInto = {this.props.classIntoThree} match = {this.props.matchThree} matchName = {this.props.matchThreeName} matchBefore = {this.props.matchTwo}/>
-            <Help />
-       </body>
-       </Style>
-        
-        
-        ;}
-        }
+              `}
+            <body>
+                <Match user={this.props.user} class={this.props.classOne} classInto={this.props.classIntoOne} match={this.props.matchOne} matchName={this.props.matchOneName} matchNum='one' otherMatch1={this.props.matchTwo} otherMatch2={this.props.matchThree} />
+                <Match user={this.props.user} class={this.props.classTwo} classInto={this.props.classIntoTwo} match={this.props.matchTwo} matchName={this.props.matchTwoName} matchBefore={this.props.matchOne} matchNext={this.props.matchThree} />
+                <Match user={this.props.user} class={this.props.classThree} classInto={this.props.classIntoThree} match={this.props.matchThree} matchName={this.props.matchThreeName} matchBefore={this.props.matchTwo} />
+                <Help />
+            </body>
+        </Style>
+
+
+            ;
+    }
+}
 
